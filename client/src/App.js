@@ -6,7 +6,8 @@ import Login from './Components/Login'
 import About from './Pages/About'
 import Maps from './Pages/Maps'
 import Signup from './Pages/Signup'
-
+import Profile from './Pages/Profile'
+import EditProfileForm from './Pages/EditProfileForm'
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState("");
@@ -32,9 +33,9 @@ function App() {
         "Content-Type": "application/json",
       },
     }).then(setIsAuthenticated(false))
-    .then(setUser(""));
+      .then(setUser(""));
     navigate("/")
-    
+
   };
 
   function handleUser(user) {
@@ -56,23 +57,33 @@ function App() {
         </Route>
         <Route path="/login" element=
           {
-            <Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
+            <Login setUser={handleUser} setIsAuthenticated={handleAuth} />
           }>
         </Route>
-        <Route path ='/about' element=
-        {
-          <About/>
-        }>
+        <Route path='/about' element=
+          {
+            <About />
+          }>
         </Route>
-        <Route path ='/mapcomments' element=
-        {
-          <Maps/>
-        }>
+        <Route path='/mapcomments' element=
+          {
+            <Maps />
+          }>
         </Route>
-        <Route path ='/signup' element=
-        {
-          <Signup setUser={handleUser} setIsAuthenticated={handleAuth}/>
-        }>
+        <Route path='/signup' element=
+          {
+            <Signup setUser={handleUser} setIsAuthenticated={handleAuth} />
+          }>
+        </Route>
+        <Route path='/profile' element=
+          {
+            <Profile user={user} />
+          }>
+        </Route>
+        <Route path='/editprofile' element=
+          {
+            <EditProfileForm user={user} setUser={handleUser} />
+          }>
         </Route>
       </Routes>
     </div>

@@ -91,6 +91,10 @@ function Signup({ setUser, setIsAuthenticated }) {
                 <button type="submit" >Create Account</button>
                 {error ? (<strong>{error}</strong>) : null}
             </form>
+            <div>
+                <h4>Already have an account?</h4>
+                <button onClick={() => navigate("/login")}>Login</button>
+            </div>
         </div>
     )
 }
