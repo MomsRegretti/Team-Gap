@@ -3,7 +3,9 @@ import { useState, useEffect } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Navbar from './Components/Navbar';
 import Login from './Components/Login'
-
+import About from './Pages/About'
+import Maps from './Pages/Maps'
+import Signup from './Pages/Signup'
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -29,23 +31,48 @@ function App() {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then(setIsAuthenticated(false));
+    }).then(setIsAuthenticated(false))
+    .then(setUser(""));
     navigate("/")
+    
   };
+
+  function handleUser(user) {
+    setUser(user);
+  }
+
+  function handleAuth(value) {
+    setIsAuthenticated(value);
+  }
 
   return (
     <div className="App">
-      <Navbar handleLogout={handleLogout} />
+      <Navbar handleLogout={handleLogout} isAuthenticated={isAuthenticated} />
       <Routes>
         <Route path="/" element=
           {
-            <button onClick={handleLogout}>hello</button>
+            <div>Welcome to Team Gap{user ? ", " + user.name : null}!</div>
           }>
         </Route>
-        <Route path="/deez" element=
+        <Route path="/login" element=
           {
             <Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
           }>
+        </Route>
+        <Route path ='/about' element=
+        {
+          <About/>
+        }>
+        </Route>
+        <Route path ='/mapcomments' element=
+        {
+          <Maps/>
+        }>
+        </Route>
+        <Route path ='/signup' element=
+        {
+          <Signup setUser={handleUser} setIsAuthenticated={handleAuth}/>
+        }>
         </Route>
       </Routes>
     </div>

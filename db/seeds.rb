@@ -3,7 +3,7 @@
 #
 # Examples:
 
-    u1 = User.create(username: 'xXCharlie420Xx' , email: "example0@gmail.com", password: '123' , name: "Charlie")
+    u1 = User.create(username: 'Charlie' , email: "example0@gmail.com", password: '123' , name: "Charlie")
 
     # maps_url = "https://valorant-api.com/v1/maps"
     # maps_response = RestClient.get(maps_url)

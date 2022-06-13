@@ -1,12 +1,28 @@
 import React from 'react'
 
-function Navbar() {
-
+function Navbar({handleLogout, isAuthenticated}) {
+  function handleAccountStatus() {
+    if (isAuthenticated) {
+      return (
+        <>
+              <a href="/mapcomments">Maps</a>
+              <button onClick={handleLogout}>Logout</button>
+        </>
+      );
+    } else {
+      return (
+        <>
+              <a href="/login">Login/Sign Up</a>
+              <a href="/about">About Us</a>
+        </>
+      );
+    }
+  }
 
   return (
     <div>
-        <a href='/deez'>Login</a>
-        <a href='/maps'>Maps</a>
+        <a href='/'>Home</a>
+        {handleAccountStatus()}
     </div>
   )
 }

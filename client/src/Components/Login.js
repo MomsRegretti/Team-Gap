@@ -56,16 +56,21 @@ function Login({ setUser, setIsAuthenticated }) {
                     />
                     <label>Password</label>
                     <input
-                        type="text"
+                        type="password"
                         placeholder='Password'
                         onChange={(e) => setPasswordInput(e.target.value)}
                         value={passwordInput}
                     />
-                    <button type="submit">g</button>
+                    <button type="submit">Submit</button>
+                    <>
                     {error ? (<strong>{error}</strong>) : null}
+                    </>
                 </form>
             </div>
-
+            <div>
+                <h4>Don't have an account?</h4>
+                <button onClick={() => navigate("/signup")}>Sign Up</button>
+            </div>
 
         </div>
     )
