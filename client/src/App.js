@@ -1,6 +1,8 @@
 import './App.css';
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom";
+import Navbar from './Components/Navbar';
+import Login from './Components/Login'
 
 
 function App() {
@@ -28,15 +30,24 @@ function App() {
         "Content-Type": "application/json",
       },
     }).then(setIsAuthenticated(false));
-    navigate("/deez")
+    navigate("/")
   };
 
   return (
     <div className="App">
-        <Routes>
-          <Route path="/" element={<button onClick={handleLogout}>hello</button>}></Route>
-          <Route path="/deez" element={<a>nuts</a>}></Route>
-        </Routes>
+      <Navbar handleLogout={handleLogout} />
+      <Routes>
+        <Route path="/" element=
+          {
+            <button onClick={handleLogout}>hello</button>
+          }>
+        </Route>
+        <Route path="/deez" element=
+          {
+            <Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
+          }>
+        </Route>
+      </Routes>
     </div>
   );
 }

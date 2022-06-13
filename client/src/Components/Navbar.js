@@ -4,7 +4,10 @@ function Navbar() {
 
 
   return (
-    <div><a>Login</a></div>
+    <div>
+        <a href='/deez'>Login</a>
+        <a href='/maps'>Maps</a>
+    </div>
   )
 }
 
