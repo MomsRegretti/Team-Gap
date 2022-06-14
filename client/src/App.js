@@ -67,7 +67,7 @@ function App() {
         </Route>
         <Route path='/mapcomments' element=
           {
-            <Maps />
+            <Maps user={user} isAuthenticated={isAuthenticated} />
           }>
         </Route>
         <Route path='/signup' element=
