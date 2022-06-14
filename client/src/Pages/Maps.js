@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Map from '../Components/Map'
-function Maps({ user, isAuthenticated }) {
+function Maps({ user, isAuthenticated, handleMapCardClick }) {
     const [maps, setMaps] = useState([])
     const [alert, setAlert] = useState(false)
     const navigate = useNavigate()
@@ -22,6 +22,7 @@ function Maps({ user, isAuthenticated }) {
                 user={user}
                 isAuthenticated={isAuthenticated}
                 setAlert={handleAlert}
+                handleMapCardClick={handleMapCardClick}
             />
         );
     }

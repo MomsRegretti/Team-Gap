@@ -8,6 +8,7 @@ import Maps from './Pages/Maps'
 import Signup from './Pages/Signup'
 import Profile from './Pages/Profile'
 import EditProfileForm from './Pages/EditProfileForm'
+import MapDetails from './Pages/MapDetails'
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState("");
@@ -25,6 +26,10 @@ function App() {
       }
     });
   }, []);
+
+  const handleMapCardClick = (id, map) => {
+    navigate(`/details/${id}`, {replace: false, state : map});
+  };
 
   const handleLogout = () => {
     fetch("/logout", {
@@ -67,7 +72,12 @@ function App() {
         </Route>
         <Route path='/mapcomments' element=
           {
-            <Maps user={user} isAuthenticated={isAuthenticated} />
+            <Maps user={user} handleMapCardClick={handleMapCardClick} isAuthenticated={isAuthenticated} />
+          }>
+        </Route>
+        <Route path="/details/:id" element=
+          {
+            <MapDetails />
           }>
         </Route>
         <Route path='/signup' element=
