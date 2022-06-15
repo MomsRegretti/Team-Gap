@@ -1,18 +1,17 @@
-require 'rest-client'
-require 'json'
-
-
 class MapsController < ApplicationController
-    def index
-        url = "https://valorant-api.com/v1/maps"
-        response = RestClient.get(url)
-        render json: response, status: :ok
-    end
 
     def show
-        url = "https://valorant-api.com/v1/maps/#{params[:id]}"
-        response = RestClient.get(url)
-        render json: response, status: :ok    
+        map = Map.find_by(uuid: params[:id])
+        render json: map, status: :ok
     end
 
+    def create
+        map = Map.create!(map_params)
+        render json: map, status: :created
+    end
+
+    private
+    def map_params
+        params.permit(:uuid, :splash, :listViewIcon, :displayName)
+    end
 end

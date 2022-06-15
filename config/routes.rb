@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :maps, only: [:index, :show ]
+  resources :apimaps, only: [:index, :show ]
   resources :users
+  resources :comments
+  resources :maps, only: [:show]
   
   get '/authorized_user', to: 'users#show'
   post '/signup', to: 'users#create'

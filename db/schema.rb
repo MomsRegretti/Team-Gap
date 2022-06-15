@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_10_191831) do
+ActiveRecord::Schema.define(version: 2022_06_15_035725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2022_06_10_191831) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "map_id", null: false
+    t.bigint "user_id", null: false
     t.string "body"
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2022_06_10_191831) do
   end
 
   create_table "maps", force: :cascade do |t|
-    t.string "name"
     t.string "uuid"
     t.string "displayName"
     t.string "listViewIcon"
