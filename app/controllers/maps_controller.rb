@@ -1,5 +1,9 @@
 class MapsController < ApplicationController
 
+    def index
+        render json: Map.all, status: :ok
+    end
+
     def show
         map = Map.find_by(uuid: params[:id])
         render json: map, status: :ok

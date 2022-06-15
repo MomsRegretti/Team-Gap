@@ -9,9 +9,11 @@
 
     maps_url = "https://valorant-api.com/v1/maps"
     maps_response = RestClient.get(maps_url)
-    maps_hash = JSON.parse(maps_response)
-
-    maps_hash["data"].each do |map|
+    
+    maps_hash = JSON.parse(maps_response)["data"]
+    maps = maps_hash.reject{|map| map["uuid"] == "ee613ee9-28b7-4beb-9666-08db13bb2244"}
+    byebug
+    maps.each do |map|
         Map.create!( uuid: map["uuid"], displayName: map["displayName"], listViewIcon: map["listViewIcon"], splash: map["splash"])
     end
 

@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
+import Comment from './Comment'
 
-function Comments({ comments, handleErrors, errors, handleNewComment, user, map, uuid }) {
+function Comments({ railsMap, comments, handleErrors, errors, handleNewComment, user, map, uuid }) {
     const navigate = useNavigate()
-
+    
     // useEffect(() => {
     //     fetch(`/mapas/${uuid}`)
     //         .then((r) => r.json())
@@ -26,7 +27,7 @@ function Comments({ comments, handleErrors, errors, handleNewComment, user, map,
             splash: map.splash,
             displayName: map.displayName,
             user_id: user.id,
-            map_id: uuid,
+            map_id: railsMap.id,
             body: commentData.body,
             category: commentData.category,
         }),
@@ -61,11 +62,11 @@ function Comments({ comments, handleErrors, errors, handleNewComment, user, map,
                 <div>
                     <h2>{comments.length} comments</h2>
                     {comments.map((comment) => {
-                        return <p key={comment.id}>{comment.body}</p>
+                        return <Comment key={comment.id} body={comment.body} user={user}></Comment>
                     })}
                 </div>
                 <form onSubmit={(e) => handleSubmit(e)}>
-                    <textarea name="body" onChange={handleChange} value={commentData.comment} placeholder="Start writing..."></textarea>
+                    <textarea name="body" onChange={handleChange} value={commentData.body} placeholder="Start writing..."></textarea>
                     <input name="category" onChange={handleChange} value={commentData.category} placeholder="Category"></input>
                     <button type="submit">Post your comment</button>
                 </form>

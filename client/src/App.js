@@ -20,14 +20,14 @@ function App() {
   useEffect(() => {
     fetch("/apimaps")
         .then((r) => r.json())
-        .then((data) => setMaps(data.data))
+        .then((data) => setMaps(data))
 }, [])
 
-//   useEffect(() => {
-//     fetch("/maps")
-//         .then((r) => r.json())
-//         .then((data) => setMaps(data.data))
-// }, [])
+  useEffect(() => {
+    fetch("/maps")
+        .then((r) => r.json())
+        .then((data) => setMapHolders(data))
+}, [])
 
   useEffect(() => {
     fetch("/authorized_user").then((res) => {
@@ -85,12 +85,12 @@ function App() {
         </Route>
         <Route path='/mapcomments' element=
           {
-            <Maps maps={maps} user={user} handleMapCardClick={handleMapCardClick} isAuthenticated={isAuthenticated} />
+            <Maps maps={maps}  user={user} handleMapCardClick={handleMapCardClick} isAuthenticated={isAuthenticated} />
           }>
         </Route>
         <Route path="/details/:id" element=
           {
-            <MapDetails />
+            <MapDetails mapHolders={mapHolders} />
           }>
         </Route>
         <Route path='/signup' element=
