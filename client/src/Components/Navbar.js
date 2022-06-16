@@ -1,20 +1,22 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+
 
 function Navbar({handleLogout, isAuthenticated}) {
   function handleAccountStatus() {
     if (isAuthenticated) {
       return (
         <>
-              <a href="/mapcomments">Maps</a>
-              <a href='/profile'>Profile</a>
+              <Link to="/mapcomments">Maps</Link>
+              <Link to='/profile'>Profile</Link>
               <button className='logbutt' onClick={handleLogout}>Logout</button>
         </>
       );
     } else {
       return (
         <>
-              <a href="/login">Login/Sign Up</a>
-              <a href="/about">About Us</a>
+              <Link to="/login">Login/Sign Up</Link>
+              <Link to="/about">About Us</Link>
         </>
       );
     }
@@ -22,7 +24,7 @@ function Navbar({handleLogout, isAuthenticated}) {
 
   return (
     <div>
-        <a href='/'>Home</a>
+        <Link to='/'>Home</Link>
         {handleAccountStatus()}
     </div>
   )

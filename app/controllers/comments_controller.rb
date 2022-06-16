@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
             
             map = Map.find_by(displayName: params[:map][:displayName])
             
-            if map != nil
+            if map
                 # # changing params object
                 params[:map_id] = map.id
                 params[:user_id] = current_user.id

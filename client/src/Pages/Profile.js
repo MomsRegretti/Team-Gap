@@ -2,14 +2,15 @@ import React , { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Profile({ user }) {
-  useEffect(() => {
-    fetch('/usermaps')
-    .then(r => r.json())
-    .then(data => console.log(data))
-  })
   const navigate = useNavigate()
-  const { name, username, avatar } = user;
+  const [uniq, setUniq] = useState([])
+  const { name, username, avatar, maps } = user;
 
+  useEffect(() => {
+    fetch('usermaps')
+    .then(r=> r.json())
+    .then(data => setUniq(data))
+  },[])
   return (
     <div>
       <div>
@@ -22,7 +23,11 @@ function Profile({ user }) {
         <button className="me-2" onClick={() => navigate("/editprofile")}>
           Edit Profile
         </button>
+        
       </div>
+      {maps ? uniq.map((map) => {
+          return <img key={map.uuid} src={map.listViewIcon} alt={map.displayName}/>
+        }): null}
     </div>
   )
 }

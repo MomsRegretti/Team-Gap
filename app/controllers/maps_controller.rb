@@ -6,8 +6,9 @@ class MapsController < ApplicationController
 
     def usermaps
         chavo = current_user
-        byebug
-        render json: chavo.maps, status: :ok
+        # byebug
+        mijo = chavo.maps.uniq
+        render json: mijo, status: :ok
     end
 
     def show

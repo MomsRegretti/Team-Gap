@@ -16,12 +16,12 @@
     #     Map.create!( uuid: map["uuid"], displayName: map["displayName"], listViewIcon: map["listViewIcon"], splash: map["splash"])
     # end
 
-    # agents_url = "https://valorant-api.com/v1/agents"
-    # agents_response = RestClient.get(agents_url)
-    # agents_hash = JSON.parse(agents_response)
-
-    # agents_hash["data"].each do |agent|
-    #     Agent.create!(uuid: agent["uuid"], description: agent["description"], bustPortrait: agent["bustPortrait"], fullPortrait: agent["fullPortrait"], fullPortraitV2: agent["fullPortraitV2"], background: agent["background"], backgroundGradientColors: agent["backgroundGradientColors"], role: agent["role"])
-    # end
+    agents_url = "https://valorant-api.com/v1/agents"
+    agents_response = RestClient.get(agents_url)
+    agents_hash = JSON.parse(agents_response)
+    agents = agents_hash["data"].reject{|agent| agent["isPlayableCharacter"] == false}
+    agents.each do |agent|
+        Agent.create!(uuid: agent["uuid"], description: agent["description"], bustPortrait: agent["bustPortrait"], fullPortrait: agent["fullPortrait"], fullPortraitV2: agent["fullPortraitV2"], background: agent["background"], backgroundGradientColors: agent["backgroundGradientColors"], role: agent["role"])
+    end
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)

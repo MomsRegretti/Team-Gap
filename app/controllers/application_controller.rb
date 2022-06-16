@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
 
+  # before_action :authorize_user
+
   include ActionController::Cookies
   wrap_parameters false
 
@@ -14,7 +16,6 @@ class ApplicationController < ActionController::API
 
   def authorize_user
     @current_user =  User.find_by(id: session[:current_user])
-
     return render json: { error: "Not Authorized" }, status: :unauthorized unless @current_user
   end
 
