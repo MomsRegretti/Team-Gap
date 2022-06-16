@@ -1,16 +1,21 @@
 class UsersController < ApplicationController
 
-    before_action :authorize_user, except: [:create]
+    before_action :authorize_user, except: [:create, :show]
 
     def index
         render json: User.all, status: :ok
     end
 
     def show
+        user = User.find(params[:id]) 
+        render json: user, status: :ok
+    end
+    
+    def authorized_user
         current_user = User.find_by!(id: session[:current_user]) 
         render json: current_user, status: :ok
     end
-    
+
     def create 
         user = User.create!(user_params)
         session[:current_user] = user.id

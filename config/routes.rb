@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :maps, only: [:index, :show]
   
-  get '/authorized_user', to: 'users#show'
+  get '/authorized_user', to: 'users#authorized_user'
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#login'
   delete '/logout', to: 'sessions#logout'

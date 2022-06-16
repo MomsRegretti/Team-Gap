@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Comment from './Comment'
 
-function Comments({ railsMap, comments, handleErrors, errors, handleNewComment, user, map, uuid }) {
+function Comments({ comments, handleErrors, errors, handleNewComment, user, map, uuid }) {
     const navigate = useNavigate()
 
     // useEffect(() => {
@@ -58,7 +58,7 @@ function Comments({ railsMap, comments, handleErrors, errors, handleNewComment, 
                 <div>
                     <h2>{comments.length} comments</h2>
                     {comments.map((comment) => {
-                        return <Comment key={comment.id} body={comment.body} user={user}></Comment>
+                        return <Comment key={comment.id} body={comment.body} user_id={comment.user_id}></Comment>
                     })}
                 </div>
                 <form onSubmit={(e) => handleSubmit(e)}>
