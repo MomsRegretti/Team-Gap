@@ -1,9 +1,13 @@
 import React from 'react'
+import Comments from './Comments'
 
-function Comment({body, user}) {
+function Comment({ body, user }) {
     return (
         <div>
-            <h4>{user.username}</h4>
+            <div>
+                <img className='avatar' src={user.avatar} alt={user.username} />
+                <strong className='comment-header'>{user.username}</strong>
+            </div>
             <p>{body}</p>
         </div>
     )

@@ -1,10 +1,10 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Comment from './Comment'
 
 function Comments({ railsMap, comments, handleErrors, errors, handleNewComment, user, map, uuid }) {
     const navigate = useNavigate()
-    
+
     // useEffect(() => {
     //     fetch(`/mapas/${uuid}`)
     //         .then((r) => r.json())
@@ -23,11 +23,7 @@ function Comments({ railsMap, comments, handleErrors, errors, handleNewComment, 
             Accept: "application/json",
         },
         body: JSON.stringify({
-            uuid,
-            splash: map.splash,
-            displayName: map.displayName,
-            user_id: user.id,
-            map_id: railsMap.id,
+            map,
             body: commentData.body,
             category: commentData.category,
         }),
@@ -69,10 +65,13 @@ function Comments({ railsMap, comments, handleErrors, errors, handleNewComment, 
                     <textarea name="body" onChange={handleChange} value={commentData.body} placeholder="Start writing..."></textarea>
                     <input name="category" onChange={handleChange} value={commentData.category} placeholder="Category"></input>
                     <button type="submit">Post your comment</button>
+                    
                 </form>
                 {errors ? <strong>{errors}</strong> : null}
                 <button onClick={() => console.log(comments)}>comment data</button>
                 <button onClick={() => console.log(uuid)}>uuid</button>
+                <button onClick={() => console.log(user)}>user</button>
+
             </div>
         </div>
     )

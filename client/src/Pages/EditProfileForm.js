@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom'
 
 function EditProfileForm({ user, setUser }) {
     const [formData, setFormData] = useState({
-        name: user.name,
+        avatar: user.avatar,
+        name: user.name,    
         username: user.username,
         age: user.age,
     });
     const navigate = useNavigate()
-    const { name, username } = user;
+    const { name, avatar , username } = user;
     const handleChange = (e) => {
         const key = e.target.name;
         setFormData({
@@ -54,7 +55,13 @@ function EditProfileForm({ user, setUser }) {
                         onChange={handleChange}
                         value={formData.username}
                         name="username" />
-                        <button type="submit">Save changes</button>
+                    <label>Avatar</label>
+                    <input type="text"
+                        placeholder={avatar}
+                        onChange={handleChange}
+                        value={formData.avatar}
+                        name="avatar" />
+                    <button type="submit">Save changes</button>
                 </form>
             </div>
             <div>

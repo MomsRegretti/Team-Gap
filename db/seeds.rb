@@ -3,19 +3,18 @@
 #
 # Examples:
 
-    u1 = User.create(username: 'Charlie' , email: "example0@gmail.com", password: '123' , name: "Charlie")
+    u1 = User.create(username: 'Charlie' , email: "example0@gmail.com", password: '123' , name: "Charlie", avatar: "https://i.kym-cdn.com/photos/images/original/001/797/796/b52.jpg")
 
     # map1 = Map.create!(id:"7eaecc1b-4337-bbf6-6ab9-04b8f06b3319", uuid: "7eaecc1b-4337-bbf6-6ab9-04b8f06b3319", displayName: "Ascent", splash: "https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/splash.png" , listViewIcon: nil)
 
-    maps_url = "https://valorant-api.com/v1/maps"
-    maps_response = RestClient.get(maps_url)
+    # maps_url = "https://valorant-api.com/v1/maps"
+    # maps_response = RestClient.get(maps_url)
+    # maps_hash = JSON.parse(maps_response)["data"]
+    # maps = maps_hash.reject{|map| map["uuid"] == "ee613ee9-28b7-4beb-9666-08db13bb2244"}
     
-    maps_hash = JSON.parse(maps_response)["data"]
-    maps = maps_hash.reject{|map| map["uuid"] == "ee613ee9-28b7-4beb-9666-08db13bb2244"}
-    byebug
-    maps.each do |map|
-        Map.create!( uuid: map["uuid"], displayName: map["displayName"], listViewIcon: map["listViewIcon"], splash: map["splash"])
-    end
+    # maps.each do |map|
+    #     Map.create!( uuid: map["uuid"], displayName: map["displayName"], listViewIcon: map["listViewIcon"], splash: map["splash"])
+    # end
 
     # agents_url = "https://valorant-api.com/v1/agents"
     # agents_response = RestClient.get(agents_url)

@@ -7,7 +7,7 @@ function Navbar({handleLogout, isAuthenticated}) {
         <>
               <a href="/mapcomments">Maps</a>
               <a href='/profile'>Profile</a>
-              <button onClick={handleLogout}>Logout</button>
+              <button className='logbutt' onClick={handleLogout}>Logout</button>
         </>
       );
     } else {

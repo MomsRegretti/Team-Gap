@@ -2,37 +2,62 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.avatar {
+  height: 69px;
+  width: 69px;
+  border-radius: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.comment-header {
+  text-align: center;
+  margin-top: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+  font-family: ;
+  margin: 0 auto;
+  background: url("https://imgur.com/UblNCk5.jpg");
+  background-size: cover;
 }
 
-.App-link {
-  color: #61dafb;
+.child {
+  width: 210px;
+  height: 400px;
+  margin: 10px;
+  float: left;
+  opacity: 0.8;
+  border: 1px solid white;
+}
+.mapcontainer {
+  margin:0 auto;
+  width: 85%;
+}
+.map-image{
+  object-fit: cover;
+  width: 210px;
+  height: 400px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#navbar {
+  padding: 30px;
+}
+
+#inner {
+  overflow: hidden;
+  width: 2000px;
+}
+
+.logbutt{
+  float: right;
+  margin: 10px;
+}
+a {
+  padding: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+
+a:hover {
+  color: #646ec4
 }

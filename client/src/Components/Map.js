@@ -7,10 +7,11 @@ function Map({ user, isAuthenticated, map, setAlert, handleMapCardClick }) {
       .then((data) => console.log(data.comments))
   })
   return (
-    <div>
-      <img src={map.listViewIcon} alt={map.displayName} onClick={() => { handleMapCardClick(uuid, { map, user }) }}></img>
-      <br></br>
-      <button onClick={handleGetComments}>comments?</button>
+    <div className='mapcontainer'>
+      <div className='child'>
+        <img className='map-image' src={map.splash} alt={map.displayName} onClick={() => { handleMapCardClick(uuid, { map, user }) }}></img>
+        <br></br>
+      </div>
     </div>
   )
 }

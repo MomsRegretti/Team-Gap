@@ -21,7 +21,6 @@ function Maps({ maps, user, isAuthenticated, handleMapCardClick }) {
     );
 
     return (
-
         <div>
             {renderMaps}
         </div>

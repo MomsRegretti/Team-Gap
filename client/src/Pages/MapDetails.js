@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
 import Comments from '../Components/Comments';
-function MapDetails({mapHolders}) {
+function MapDetails({}) {
     let navigate = useNavigate()
     let locate = useLocation();
     let { splash, displayName, uuid } = locate.state.map
@@ -9,10 +9,10 @@ function MapDetails({mapHolders}) {
     const [errors, setErrors] = useState([])
     const [railsMap, setRailsMap] = useState([])
 
-    useEffect(()=> {
-        const thisMap = mapHolders.filter(mapHolder => mapHolder.uuid === uuid)
-        setRailsMap(thisMap[0])
-    }, [])
+    // useEffect(() => {
+    //     const thisMap = mapHolders.filter(mapHolder => mapHolder.uuid === uuid)
+    //     setRailsMap(thisMap[0])
+    // }, [])
 
     useEffect(() => {
         fetch(`/maps/${uuid}`)

@@ -4,9 +4,17 @@ class MapsController < ApplicationController
         render json: Map.all, status: :ok
     end
 
+    def usermaps
+        render json: current_user.maps, status: :ok
+    end
+
     def show
-        map = Map.find_by(uuid: params[:id])
-        render json: map, status: :ok
+        map = Map.find_by!(uuid: params[:id])
+        if map
+            render json: map, status: :ok
+        else
+            render json: {}, status: :not_found
+        end
     end
 
     def create

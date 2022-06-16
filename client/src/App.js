@@ -14,20 +14,20 @@ function App() {
   const [user, setUser] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [maps, setMaps] = useState([])
-  const [mapHolders, setMapHolders] = useState([])
+  // const [mapHolders, setMapHolders] = useState([])
   let navigate = useNavigate();
 
   useEffect(() => {
     fetch("/apimaps")
-        .then((r) => r.json())
-        .then((data) => setMaps(data))
-}, [])
+      .then((r) => r.json())
+      .then((data) => setMaps(data))
+  }, [])
 
-  useEffect(() => {
-    fetch("/maps")
-        .then((r) => r.json())
-        .then((data) => setMapHolders(data))
-}, [])
+  // useEffect(() => {
+  //   fetch("/maps")
+  //     .then((r) => r.json())
+  //     .then((data) => setMapHolders(data))
+  // }, [])
 
   useEffect(() => {
     fetch("/authorized_user").then((res) => {
@@ -41,7 +41,7 @@ function App() {
   }, []);
 
   const handleMapCardClick = (id, map) => {
-    navigate(`/details/${id}`, {replace: true, state : map});
+    navigate(`/details/${id}`, { replace: true, state: map });
   };
 
   const handleLogout = () => {
@@ -85,12 +85,12 @@ function App() {
         </Route>
         <Route path='/mapcomments' element=
           {
-            <Maps maps={maps}  user={user} handleMapCardClick={handleMapCardClick} isAuthenticated={isAuthenticated} />
+            <Maps maps={maps} user={user} handleMapCardClick={handleMapCardClick} isAuthenticated={isAuthenticated} />
           }>
         </Route>
         <Route path="/details/:id" element=
           {
-            <MapDetails mapHolders={mapHolders} />
+            <MapDetails />
           }>
         </Route>
         <Route path='/signup' element=
