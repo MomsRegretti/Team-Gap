@@ -1,4 +1,4 @@
 class Agent < ApplicationRecord
-  # belongs_to :user
-  # belongs_to :map
+  has_many :mapagents
+  has_many :maps, through: :mapagents
 end

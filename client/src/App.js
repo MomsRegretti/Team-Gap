@@ -9,6 +9,8 @@ import Signup from './Pages/Signup'
 import Profile from './Pages/Profile'
 import EditProfileForm from './Pages/EditProfileForm'
 import MapDetails from './Pages/MapDetails'
+import AgentSelector from './Pages/AgentSelector';
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState("");
@@ -106,6 +108,11 @@ function App() {
         <Route path='/editprofile' element=
           {
             <EditProfileForm user={user} setUser={handleUser} />
+          }>
+        </Route>
+        <Route path='/agentselector' element=
+          {
+            <AgentSelector />
           }>
         </Route>
       </Routes>

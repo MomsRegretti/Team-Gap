@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :comments
   resources :maps, only: [:index, :show]
+  resources :agents, only: [:index, :show ]
   
   get '/authorized_user', to: 'users#authorized_user'
   post '/signup', to: 'users#create'

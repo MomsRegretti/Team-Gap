@@ -9,6 +9,7 @@ function Navbar({handleLogout, isAuthenticated}) {
         <>
               <Link to="/mapcomments">Maps</Link>
               <Link to='/profile'>Profile</Link>
+              <Link to='/agentselector'>Agent Selector</Link>
               <button className='logbutt' onClick={handleLogout}>Logout</button>
         </>
       );
@@ -17,6 +18,7 @@ function Navbar({handleLogout, isAuthenticated}) {
         <>
               <Link to="/login">Login/Sign Up</Link>
               <Link to="/about">About Us</Link>
+              <Link to='/agentselector'>Agent Selector</Link>
         </>
       );
     }
