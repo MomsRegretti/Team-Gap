@@ -1,15 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
 import Comment from './Comment'
 
 function Comments({ comments, handleErrors, errors, handleNewComment, user, map, uuid }) {
-    const navigate = useNavigate()
-
-    // useEffect(() => {
-    //     fetch(`/mapas/${uuid}`)
-    //         .then((r) => r.json())
-    //         .then((data) => setComments(data))
-    // }, [uuid])
 
     const [commentData, setCommentData] = useState({
         body: "",

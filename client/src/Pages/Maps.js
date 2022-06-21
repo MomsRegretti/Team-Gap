@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 import Map from '../Components/Map'
 function Maps({ maps, user, isAuthenticated, handleMapCardClick }) {
-    const [alert, setAlert] = useState(false)
-    const navigate = useNavigate()
-    const handleAlert = () => setAlert
 
     const renderMaps = maps.map((map) => {
         return (
@@ -13,7 +9,6 @@ function Maps({ maps, user, isAuthenticated, handleMapCardClick }) {
                 map={map}
                 user={user}
                 isAuthenticated={isAuthenticated}
-                setAlert={handleAlert}
                 handleMapCardClick={handleMapCardClick}
             />
         );
@@ -21,7 +16,7 @@ function Maps({ maps, user, isAuthenticated, handleMapCardClick }) {
     );
 
     return (
-        <div>
+        <div className="mapcontainer">
             {renderMaps}
         </div>
     )

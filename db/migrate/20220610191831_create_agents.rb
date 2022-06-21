@@ -3,6 +3,8 @@ class CreateAgents < ActiveRecord::Migration[6.1]
     create_table :agents do |t|
       t.string :uuid
       t.string :displayName
+      t.string :roleIcon
+      t.string :displayIcon
       t.string :description
       t.string :bustPortrait
       t.string :fullPortrait

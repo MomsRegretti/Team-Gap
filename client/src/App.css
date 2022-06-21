@@ -1,6 +1,127 @@
+body {
+  color: antiquewhite;
+}
+
 .App {
   text-align: center;
+  background: linear-gradient(180deg, #a7202bee, rgba(43, 9, 13, 0.933) 80%), url("https://whatifgaming.com/wp-content/uploads/2021/10/Naceja.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
+
+.page-container {
+  width: 80%;
+  background-color: #646ec4;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.inner-container {
+  width: 80%;
+  background-color: blue;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+/* AGENT SELECTOR PAGE */
+
+.bust-container {
+  background-color: aqua;
+  margin: 20px auto;
+  height: 400px;
+  border-radius: 15px;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.bust-image {
+  object-fit: cover;
+  width: 20%;
+  margin: 10px;
+  border-radius: 4.20%;
+  border: 1px solid red;
+  background-repeat: no-repeat;
+  background-color: #0f1923;
+  background-position: center;
+  background-size: 250px 250px;
+}
+.bust-image-Initiator{
+  object-fit: cover;
+  width: 20%;
+  margin: 10px;
+  border-radius: 4.20%;
+  border: 1px solid red;
+  background-image: url("https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png");
+  background-repeat: no-repeat;
+  background-color: #0f1923;
+  background-position: center;
+  background-size: 250px 250px;
+}
+.bust-image-Duelist{
+  object-fit: cover;
+  width: 20%;
+  margin: 10px;
+  border-radius: 4.20%;
+  border: 1px solid red;
+  background-image: url("https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png");
+  background-repeat: no-repeat;
+  background-color: #0f1923;
+  background-position: center;
+  background-size: 250px 250px;
+}
+.bust-image-Sentinel{
+  object-fit: cover;
+  width: 20%;
+  margin: 10px;
+  border-radius: 4.20%;
+  border: 1px solid red;
+  background-image: url("https://media.valorant-api.com/agents/roles/5fc02f99-4091-4486-a531-98459a3e95e9/displayicon.png");
+  background-repeat: no-repeat;
+  background-color: #0f1923;
+  background-position: center;
+  background-size: 250px 250px;
+}
+.bust-image-Controller{
+  object-fit: cover;
+  width: 20%;
+  margin: 10px;
+  border-radius: 4.20%;
+  border: 1px solid red;
+  background-image: url("https://media.valorant-api.com/agents/roles/4ee40330-ecdd-4f2f-98a8-eb1243428373/displayicon.png");
+  background-repeat: no-repeat;
+  background-color: #0f1923;
+  background-position: center;
+  background-size: 250px 250px;
+}
+.bust-name {
+  display: block;
+  margin-left: auto;
+}
+.agent-pool {
+  margin: 10px;
+  background-color: aqua;
+  height: 169px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+.agent-icon{
+  margin: 5px;
+  height: 69px;
+  width: 69px;
+  border-radius: 50%;
+}
+/* COMMENTS & PROFILE */
 
 .avatar {
   height: 69px;
@@ -13,44 +134,35 @@
   margin-top: auto;
 }
 
-body {
-  font-family: ;
+/* MAPS PAGE */
+
+.mapcontainer {
   margin: 0 auto;
-  background: url("https://imgur.com/UblNCk5.jpg");
-  background-size: cover;
+  justify-content: center;
 }
 
 .child {
   width: 210px;
   height: 400px;
   margin: 10px;
-  float: left;
-  opacity: 0.8;
-  border: 1px solid white;
+  justify-self: center;
+  opacity: 0.8420;
 }
-.mapcontainer {
-  margin:0 auto;
-  width: 85%;
-}
-.map-image{
+
+.map-image {
   object-fit: cover;
   width: 210px;
   height: 400px;
+  margin: 20px;
 }
 
-#navbar {
-  padding: 30px;
-}
+/* NAVBAR */
 
-#inner {
-  overflow: hidden;
-  width: 2000px;
-}
 
-.logbutt{
+.logbutt {
   float: right;
-  margin: 10px;
 }
+
 a {
   padding: 30px;
   text-decoration: none;

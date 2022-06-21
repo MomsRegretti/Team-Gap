@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2022_06_17_164130) do
   create_table "agents", force: :cascade do |t|
     t.string "uuid"
     t.string "displayName"
+    t.string "roleIcon"
+    t.string "displayIcon"
     t.string "description"
     t.string "bustPortrait"
     t.string "fullPortrait"

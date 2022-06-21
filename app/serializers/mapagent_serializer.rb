@@ -1,3 +1,4 @@
 class MapagentSerializer < ActiveModel::Serializer
-  attributes :map_id, :agent_id, :rating
+  attributes :rating, :agent_id
+  belongs_to :agent
 end
