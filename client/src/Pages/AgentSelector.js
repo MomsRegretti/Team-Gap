@@ -115,7 +115,6 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
                         {currentMap ? renderWeakAgents : null}
                     </div>
                 </div>
-
             </div>
         )
     } else

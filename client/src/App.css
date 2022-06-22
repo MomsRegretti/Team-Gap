@@ -8,7 +8,7 @@ body {
 
 .App {
   text-align: center;
-  background: linear-gradient(180deg, #a7202bee, rgba(43, 9, 13, 0.933) 80%), url("https://whatifgaming.com/wp-content/uploads/2021/10/Naceja.png");
+  background: url("https://whatifgaming.com/wp-content/uploads/2021/10/Naceja.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -16,14 +16,14 @@ body {
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  color: palegreen;
+  color: black;
 }
 
 .page-container {
   width: 80%;
-  background-color: #646ec4;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: #0f1923d3;
+  border: solid #4dadac 1px;
+  margin: 20px auto ;
   border-radius: 10px;
 }
 
@@ -38,7 +38,8 @@ body {
 /* AGENT MAP SELECTOR */
 
 .agentmap-container {
-  width: 60%;
+  min-width: fit-content;
+  max-width: 90%;
   margin: 20px auto;
   overflow: hidden;
   display: flex;
@@ -46,16 +47,17 @@ body {
   align-items: center;
   height: 50vh;
   font-family: "Roboto", sans-serif;
-  background: #333;
+  background: #a7202bee;
   color: white;
   border-radius: 15px;
 }
 
 .cards {
   display: flex;
-  max-width: 800px;
+  width: fit-content;
   width: calc(100% -100px);
   height: 400px;
+  margin: 20px;
 }
 
 .cards .card .info .title {
@@ -151,29 +153,33 @@ body {
 
 .recommend-container {
   margin: 10px;
-  background-color: aqua;
+  background-color: #a7202bd5;
   height: 400px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 10px;
 }
+
 .recommendations {
   height: 90%;
   width: 30%;
-  background-color: #0f1923;
+  background-image: url("https://wallpaperaccess.com/full/4547519.jpg");
+  background-position: center;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 15px;
 }
+
 .agent-bust {
   margin: -80px;
-  width: 100%;
-  height: auto;
+  width: 300px;
 }
+
 .bust-container {
-  background-color: aqua;
+  background-color: #a7202bee;
   margin: 20px auto;
   height: 400px;
   border-radius: 15px;
@@ -182,6 +188,7 @@ body {
   justify-content: space-around;
   text-align: center;
 }
+
 .bust-image {
   object-fit: cover;
   width: 20%;
@@ -193,6 +200,7 @@ body {
   background-position: center;
   background-size: 250px 250px;
 }
+
 .bust-image-Initiator {
   object-fit: cover;
   width: 20%;
@@ -205,6 +213,7 @@ body {
   background-position: center;
   background-size: 250px 250px;
 }
+
 .bust-image-Duelist {
   object-fit: cover;
   width: 20%;
@@ -217,6 +226,7 @@ body {
   background-position: center;
   background-size: 250px 250px;
 }
+
 .bust-image-Sentinel {
   object-fit: cover;
   width: 20%;
@@ -229,6 +239,7 @@ body {
   background-position: center;
   background-size: 250px 250px;
 }
+
 .bust-image-Controller {
   object-fit: cover;
   width: 20%;
@@ -241,24 +252,29 @@ body {
   background-position: center;
   background-size: 250px 250px;
 }
+
 .bust-name {
   display: block;
   margin-left: auto;
 }
+
 .agent-pool {
   margin: 10px;
-  background-color: aqua;
+  background-color: #a7202bee;
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 10px;
 }
+
 .agent-icon {
   margin: 5px;
-  width: 100%;
+  width: 85%;
+  max-height: 256px;
   height: auto;
   border-radius: 50%;
+  background-color: #0f1923;
 }
 
 

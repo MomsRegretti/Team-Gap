@@ -77,7 +77,11 @@ function App() {
       <Routes>
         <Route path="/" element=
           {
-            <div>Welcome to Team Canyon{user ? ", " + user.name : null}!</div>
+            <div>
+              <div>
+                Welcome to Team Canyon{user ? ", " + user.name : null}!
+              </div>
+            </div>
           }>
         </Route>
         <Route path="/login" element=
