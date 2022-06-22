@@ -5,6 +5,6 @@ agents_response = RestClient.get(agents_url)
 agents_hash = JSON.parse(agents_response)
 agents = agents_hash["data"].reject{|agent| agent["isPlayableCharacter"] == false}
 agents.each do |agent|
-    Agent.create!(uuid: agent["uuid"], displayName: agent["displayName"], displayIcon: agent["displayIcon"], description: agent["description"], bustPortrait: agent["bustPortrait"], fullPortrait: agent["fullPortrait"], fullPortraitV2: agent["fullPortraitV2"], background: agent["background"], backgroundGradientColors: agent["backgroundGradientColors"], role: agent["role"]["displayName"], roleIcon: agent["role"]["displayIcon"])
+    Agent.create!(uuid: agent["uuid"], displayName: agent["displayName"], displayIcon: agent["displayIcon"], description: agent["description"], bustPortrait: agent["bustPortrait"], fullPortrait: agent["fullPortrait"], fullPortraitV2: agent["fullPortraitV2"], background: agent["background"], backgroundGradientColors: agent["backgroundGradientColors"], role: agent["role"]["displayName"], roleIcon: agent["role"]["displayIcon"], role_uuid: agent["role"]["uuid"])
 end
 

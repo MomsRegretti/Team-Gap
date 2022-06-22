@@ -1,9 +1,15 @@
+@font-face {
+  font-family: Valorant;
+  src: url("./ValorantFont.ttf");
+}
+
 :root {
   --cb: cubic-bezier(.05, .61, .41, .95)
 }
 
 body {
   color: antiquewhite;
+  /* font-family: poppins, sans-serif; */
 }
 
 .App {
@@ -16,14 +22,14 @@ body {
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  color: black;
+  color: white;
 }
 
 .page-container {
   width: 80%;
   background-color: #0f1923d3;
   border: solid #4dadac 1px;
-  margin: 20px auto ;
+  margin: 20px auto;
   border-radius: 10px;
 }
 
@@ -47,7 +53,7 @@ body {
   align-items: center;
   height: 50vh;
   font-family: "Roboto", sans-serif;
-  background: #a7202bee;
+  border: #4dadac solid 1px;
   color: white;
   border-radius: 15px;
 }
@@ -153,14 +159,12 @@ body {
 
 .recommend-container {
   margin: 10px;
-  background-color: #a7202bd5;
   height: 400px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 10px;
 }
-
 .recommendations {
   height: 90%;
   width: 30%;
@@ -172,92 +176,107 @@ body {
   justify-content: center;
   border-radius: 15px;
 }
-
 .agent-bust {
   margin: -80px;
   width: 300px;
 }
-
+.bust-div {
+  justify-content: center;
+  display: flexbox;
+}
 .bust-container {
-  background-color: #a7202bee;
   margin: 20px auto;
-  height: 400px;
+  height: 420px;
   border-radius: 15px;
   width: 90%;
   display: flex;
   justify-content: space-around;
   text-align: center;
 }
-
+.squadmate-text {
+  margin: auto;
+  margin-top: -80px;
+  position: relative;
+  background-color: white;
+  text-align: center;
+  z-index: 2;
+  font-weight: 500;
+  width: fit-content;
+  padding: 4px 8px 0px 8px;
+  color: black;
+  font-family: valorant;
+  opacity: .8;
+}
 .bust-image {
   object-fit: cover;
-  width: 20%;
-  margin: 10px;
+  width: 80%;
+  height: 90%;
+  margin: 20px;
   border-radius: 4.20%;
-  border: 1px solid red;
+  border: #4dadac solid 1px;
   background-repeat: no-repeat;
   background-color: #0f1923;
   background-position: center;
   background-size: 250px 250px;
+  z-index: 1;
 }
-
 .bust-image-Initiator {
   object-fit: cover;
-  width: 20%;
-  margin: 10px;
+  width: 80%;
+  height: 90%;
+  margin: 20px;
+  border: #4dadac solid 1px;
   border-radius: 4.20%;
-  border: 1px solid red;
   background-image: url("https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png");
   background-repeat: no-repeat;
   background-color: #0f1923;
   background-position: center;
   background-size: 250px 250px;
+  transition: ease-in;
 }
-
 .bust-image-Duelist {
+  border: #4dadac solid 1px;
   object-fit: cover;
-  width: 20%;
-  margin: 10px;
+  width: 80%;
+  height: 90%;
+  margin: 20px;
   border-radius: 4.20%;
-  border: 1px solid red;
   background-image: url("https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png");
   background-repeat: no-repeat;
   background-color: #0f1923;
   background-position: center;
   background-size: 250px 250px;
 }
-
 .bust-image-Sentinel {
+  border: #4dadac solid 1px;
   object-fit: cover;
-  width: 20%;
-  margin: 10px;
+  width: 80%;
+  height: 90%;
+  margin: 20px;
   border-radius: 4.20%;
-  border: 1px solid red;
   background-image: url("https://media.valorant-api.com/agents/roles/5fc02f99-4091-4486-a531-98459a3e95e9/displayicon.png");
   background-repeat: no-repeat;
   background-color: #0f1923;
   background-position: center;
   background-size: 250px 250px;
 }
-
 .bust-image-Controller {
+  border: #4dadac solid 1px;
   object-fit: cover;
-  width: 20%;
-  margin: 10px;
+  width: 80%;
+  height: 90%;
+  margin: 20px;
   border-radius: 4.20%;
-  border: 1px solid red;
   background-image: url("https://media.valorant-api.com/agents/roles/4ee40330-ecdd-4f2f-98a8-eb1243428373/displayicon.png");
   background-repeat: no-repeat;
   background-color: #0f1923;
   background-position: center;
   background-size: 250px 250px;
 }
-
 .bust-name {
   display: block;
   margin-left: auto;
 }
-
 .agent-pool {
   margin: 10px;
   background-color: #a7202bee;
@@ -267,7 +286,6 @@ body {
   justify-content: space-around;
   border-radius: 10px;
 }
-
 .agent-icon {
   margin: 5px;
   width: 85%;
@@ -277,8 +295,6 @@ body {
   background-color: #0f1923;
 }
 
-
-
 /* COMMENTS & PROFILE */
 
 .avatar {
@@ -286,7 +302,6 @@ body {
   width: 69px;
   border-radius: 50%;
 }
-
 .comment-header {
   text-align: center;
   margin-top: auto;
@@ -298,7 +313,6 @@ body {
   margin: 0 auto;
   justify-content: center;
 }
-
 .child {
   width: 210px;
   height: 400px;
@@ -306,7 +320,6 @@ body {
   justify-self: center;
   opacity: 0.8420;
 }
-
 .map-image {
   object-fit: cover;
   width: 210px;

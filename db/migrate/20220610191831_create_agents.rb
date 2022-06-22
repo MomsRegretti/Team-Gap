@@ -12,6 +12,7 @@ class CreateAgents < ActiveRecord::Migration[6.1]
       t.string :background
       t.string :backgroundGradientColors
       t.string :role
+      t.string :role_uuid
       # t.belongs_to :user, null: false, foreign_key: true
       # t.belongs_to :map, null: false, foreign_key: true
 

@@ -44,11 +44,18 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
     }
 
     const handleMapClick = (map, configObjPOST) => {
+        setMapRetrieved(false)
         fetch(`/mapclick`, configObjPOST)
-            .then((res) => res.json())
-            .then((data) => {
-                setAgentData(data.mapagents)
-                setMapRetrieved(true)
+            .then((res) => {
+                if (res.ok) {
+                    res.json()
+                        .then((data) => {
+                            if (data) {
+                                setAgentData(data.mapagents)
+                                setMapRetrieved(true)
+                            }
+                        })
+                }
             })
         setCurrentMap(map)
         if (mapRetrieved) {
@@ -67,7 +74,11 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
     const poke = () => console.log('that tickles')
 
     const renderStrongAgents = strongAgents.map((agent) => {
-        return <Bust key={agent.id} agent={getAgent(agent.agent_id)} handleSetSquadMate={poke} />
+        return (
+            <div>
+                <Bust key={agent.id} agent={getAgent(agent.agent_id)} handleSetSquadMate={poke} />
+            </div>
+        )
     })
 
     const renderGenerallyGoodAgents = generallyGoodAgents.map((agent) => {
@@ -103,7 +114,6 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
                 <div className="agent-pool">
                     {renderAgents}
                 </div>
-
                 <div className="recommend-container">
                     <div className='recommendations' id='Strong'>
                         {currentMap ? renderStrongAgents : null}

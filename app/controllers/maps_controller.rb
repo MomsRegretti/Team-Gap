@@ -11,7 +11,7 @@ class MapsController < ApplicationController
         elsif !map
             m1 = Map.create(uuid: params[:map][:uuid], displayName: params[:map][:displayName], splash: params[:map][:splash], listViewIcon: params[:map][:listViewIcon])
             m1.addagents
-            render json: map, status: :ok
+            render json: m1, status: :ok
         end
     end
 
