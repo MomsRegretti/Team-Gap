@@ -15,12 +15,25 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState("");
   const [maps, setMaps] = useState([])
+  const [agents, setAgents] = useState([])
+  const [mapsLoaded, setMapsLoaded] = useState(false)
+  const [agentsLoaded, setAgentsLoaded] = useState(false)
+
   let navigate = useNavigate();
 
   useEffect(() => {
     fetch("/apimaps")
       .then((r) => r.json())
-      .then((data) => setMaps(data))
+      .then((data) => {
+        setMaps(data)
+        setMapsLoaded(true)
+      })
+    fetch('/agents')
+      .then(r => r.json())
+      .then(data => {
+        setAgents(data)
+        setAgentsLoaded(true)
+      })
   }, [])
 
   useEffect(() => {
@@ -64,7 +77,7 @@ function App() {
       <Routes>
         <Route path="/" element=
           {
-            <div>Welcome to Team Gap{user ? ", " + user.name : null}!</div>
+            <div>Welcome to Team Canyon{user ? ", " + user.name : null}!</div>
           }>
         </Route>
         <Route path="/login" element=
@@ -104,7 +117,7 @@ function App() {
         </Route>
         <Route path='/agentselector' element=
           {
-            <AgentSelector />
+            <AgentSelector agents={agents} agentsLoaded={agentsLoaded} mapsLoaded={mapsLoaded} maps={maps} />
           }>
         </Route>
       </Routes>

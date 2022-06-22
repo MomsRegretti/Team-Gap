@@ -1,3 +1,7 @@
+:root {
+  --cb: cubic-bezier(.05, .61, .41, .95)
+}
+
 body {
   color: antiquewhite;
 }
@@ -12,7 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: palegreen;
 }
 
 .page-container {
@@ -31,8 +35,143 @@ body {
   margin-top: 30px;
 }
 
-/* AGENT SELECTOR PAGE */
+/* AGENT MAP SELECTOR */
 
+.agentmap-container {
+  width: 60%;
+  margin: 20px auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-family: "Roboto", sans-serif;
+  background: #333;
+  color: white;
+  border-radius: 15px;
+}
+
+.cards {
+  display: flex;
+  max-width: 800px;
+  width: calc(100% -100px);
+  height: 400px;
+}
+
+.cards .card .info .title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.cards .card .label .icon {
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.cards .card .label .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  white-space: pre;
+  transition: 1s;
+}
+
+.card-active {
+  border-radius: 30px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.cards .card {
+  position: relative;
+  min-width: 60px;
+  overflow: hidden;
+  margin: 5px;
+  background-size: auto 150%;
+  background-position: center;
+  cursor: pointer;
+  transition: .5s;
+  border-radius: 30px;
+}
+
+.cards .card .label {
+  display: flex;
+  position: absolute;
+  right: 0;
+  height: 40px;
+  transition: .5s;
+}
+
+.cards .label .card.active {
+  bottom: 20px;
+  left: 20px;
+}
+
+.cards .cards.active {
+  flex-grow: 10000;
+  background-size: auto 100%;
+}
+
+.cards .card:not(.active) .label {
+  bottom: 10px;
+  left: 10px;
+}
+
+.cards .card .shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(0, #0004, transparent)
+}
+
+.card {
+  width: 100px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.agent-map {
+  object-fit: cover;
+  width: 210px;
+  height: 400px;
+  margin: 20px;
+}
+
+/* AGENT SELECTOR */
+
+.recommend-container {
+  margin: 10px;
+  background-color: aqua;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+.recommendations {
+  height: 90%;
+  width: 30%;
+  background-color: #0f1923;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+.agent-bust {
+  margin: -80px;
+  width: 100%;
+  height: auto;
+}
 .bust-container {
   background-color: aqua;
   margin: 20px auto;
@@ -54,7 +193,7 @@ body {
   background-position: center;
   background-size: 250px 250px;
 }
-.bust-image-Initiator{
+.bust-image-Initiator {
   object-fit: cover;
   width: 20%;
   margin: 10px;
@@ -66,7 +205,7 @@ body {
   background-position: center;
   background-size: 250px 250px;
 }
-.bust-image-Duelist{
+.bust-image-Duelist {
   object-fit: cover;
   width: 20%;
   margin: 10px;
@@ -78,7 +217,7 @@ body {
   background-position: center;
   background-size: 250px 250px;
 }
-.bust-image-Sentinel{
+.bust-image-Sentinel {
   object-fit: cover;
   width: 20%;
   margin: 10px;
@@ -90,7 +229,7 @@ body {
   background-position: center;
   background-size: 250px 250px;
 }
-.bust-image-Controller{
+.bust-image-Controller {
   object-fit: cover;
   width: 20%;
   margin: 10px;
@@ -109,18 +248,21 @@ body {
 .agent-pool {
   margin: 10px;
   background-color: aqua;
-  height: 169px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 10px;
 }
-.agent-icon{
+.agent-icon {
   margin: 5px;
-  height: 69px;
-  width: 69px;
+  width: 100%;
+  height: auto;
   border-radius: 50%;
 }
+
+
+
 /* COMMENTS & PROFILE */
 
 .avatar {
@@ -163,6 +305,13 @@ body {
   float: right;
 }
 
+
+
+.page-wrapper {
+  width: 100%;
+  height: auto;
+}
+
 a {
   padding: 30px;
   text-decoration: none;
@@ -172,4 +321,127 @@ a {
 
 a:hover {
   color: #646ec4
+}
+
+
+
+.nav-wrapper {
+  width: 100%;
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.grad-bar {
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
+  -webkit-animation: gradbar 15s ease infinite;
+  -moz-animation: gradbar 15s ease infinite;
+  animation: gradbar 15s ease infinite;
+}
+
+/* NAVIGATION */
+.navbar {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  justify-content: right;
+  align-items: center;
+  height: fit-content;
+  overflow: hidden;
+  height: 40px;
+}
+
+.navbar img {
+  height: 16px;
+  width: auto;
+  margin-right: 56%;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  text-align: center;
+}
+
+.nav {
+  align-items: center;
+}
+
+.nav-item a {
+  color: #000;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-decoration: none;
+  background-color: inherit;
+  transition: color 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+.nav-item a:hover {
+  color: whitesmoke;
+  background-color: #a7202bee;
+}
+
+.no-search {
+  transform: translate(0);
+  transition: transform 0.7s ease-in-out;
+}
+
+.search-input {
+  position: absolute;
+  top: -4px;
+  right: -125px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.6s ease;
+}
+
+.search-active {
+  opacity: 1;
+  z-index: 0;
+}
+
+@-webkit-keyframes gradbar {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes gradbar {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@keyframes gradbar {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
 }

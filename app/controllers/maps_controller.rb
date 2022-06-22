@@ -4,6 +4,17 @@ class MapsController < ApplicationController
         render json: Map.all, status: :ok
     end
 
+    def mapclick
+        map = Map.find_by(displayName: params[:map][:displayName])
+        if map
+            render json: map, status: :ok
+        elsif !map
+            m1 = Map.create(uuid: params[:map][:uuid], displayName: params[:map][:displayName], splash: params[:map][:splash], listViewIcon: params[:map][:listViewIcon])
+            m1.addagents
+            render json: map, status: :ok
+        end
+    end
+
     def usermaps
         chavo = current_user
         # byebug
