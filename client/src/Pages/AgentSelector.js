@@ -4,14 +4,12 @@ import Agent from '../Components/Agent'
 import AgentMap from '../Components/AgentMap'
 import Bust from '../Components/Bust'
 function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
-
     const [currentMap, setCurrentMap] = useState("")
     const [agentData, setAgentData] = useState([])
     const [squadMate1, setSquadMate1] = useState("")
     const [squadMate2, setSquadMate2] = useState("")
     const [squadMate3, setSquadMate3] = useState("")
     const [squadMate4, setSquadMate4] = useState("")
-    const [mapRetrieved, setMapRetrieved] = useState(false)
 
     const handleRemoveSquadMate = (squadmate) => {
         if (squadmate === squadMate1) {
@@ -44,7 +42,6 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
     }
 
     const handleMapClick = (map, configObjPOST) => {
-        setMapRetrieved(false)
         fetch(`/mapclick`, configObjPOST)
             .then((res) => {
                 if (res.ok) {
@@ -52,15 +49,11 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
                         .then((data) => {
                             if (data) {
                                 setAgentData(data.mapagents)
-                                setMapRetrieved(true)
+                                setCurrentMap(data)
                             }
                         })
                 }
             })
-        setCurrentMap(map)
-        if (mapRetrieved) {
-            fetch(`/maps/${currentMap.uuid}`)
-        }
     }
 
     const strongAgents = agentData.filter((agent) => agent.rating === "Strong")
@@ -81,6 +74,18 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
         )
     })
 
+    const renderMapBias = () => {
+        if (currentMap.rolebias === "Controller") {
+            return <img style={{margin: "20px auto"}} src='https://media.valorant-api.com/agents/roles/4ee40330-ecdd-4f2f-98a8-eb1243428373/displayicon.png' alt='Controller' />
+        } else if (currentMap.rolebias === "Initiator") {
+            return <img style={{margin: "20px auto"}} src='https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png' alt='Initiator' />
+        } else if (currentMap.rolebias === "Sentinel") {
+            return <img style={{margin: "20px auto"}} src='https://media.valorant-api.com/agents/roles/5fc02f99-4091-4486-a531-98459a3e95e9/displayicon.png' alt='Sentinel' />
+        } else if (currentMap.rolebias === "Duelist") {
+            return <img style={{margin: "20px auto"}} src='https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png' alt='Duelist' />
+        }
+    }
+
     const renderGenerallyGoodAgents = generallyGoodAgents.map((agent) => {
         return <Bust key={agent.id} agent={getAgent(agent.agent_id)} handleSetSquadMate={poke} />
     })
@@ -90,11 +95,11 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
     })
 
     const renderMaps = maps.map((map) => {
-        return <AgentMap map={map} currentMap={currentMap} handleMapClick={handleMapClick} />
+        return <AgentMap key={map.uuid} map={map} currentMap={currentMap} handleMapClick={handleMapClick} />
     })
 
     const renderAgents = agents.map((agent) => {
-        return <Agent key={agent.displayName} agent={agent} handleSetSquadMate={handleSetSquadMate} />
+        return <Agent key={agent.id} currentMap={currentMap} agent={agent} handleSetSquadMate={handleSetSquadMate} />
     })
 
     if (mapsLoaded && agentsLoaded) {
@@ -110,6 +115,10 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
                     <Squadmate key="2" squadMate={squadMate2} handleRemoveSquadMate={handleRemoveSquadMate} />
                     <Squadmate key="3" squadMate={squadMate3} handleRemoveSquadMate={handleRemoveSquadMate} />
                     <Squadmate key="4" squadMate={squadMate4} handleRemoveSquadMate={handleRemoveSquadMate} />
+                </div>
+                <div className='teambias-container'>
+                    <li className="teambias-text">Suggested Team Bias:</li>
+                    {currentMap ? renderMapBias() : <li className='teambias-text' style={{margin : 55}}>Choose a Map!</li>}
                 </div>
                 <div className="agent-pool">
                     {renderAgents}

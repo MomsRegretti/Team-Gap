@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2022_06_17_164130) do
     t.string "displayName"
     t.string "listViewIcon"
     t.string "splash"
+    t.string "rolebias"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

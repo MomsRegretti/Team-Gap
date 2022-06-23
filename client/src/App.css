@@ -9,7 +9,6 @@
 
 body {
   color: antiquewhite;
-  /* font-family: poppins, sans-serif; */
 }
 
 .App {
@@ -53,7 +52,7 @@ body {
   align-items: center;
   height: 50vh;
   font-family: "Roboto", sans-serif;
-  border: #4dadac solid 1px;
+  border: #4dadac solid 2px;
   color: white;
   border-radius: 15px;
 }
@@ -156,6 +155,25 @@ body {
 }
 
 /* AGENT SELECTOR */
+.teambias-container {
+  border: #4dadac solid 2px;
+  margin: auto;
+  width: fit-content;
+}
+
+.teambias-text {
+  background-color: white;
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+  z-index: 2;
+  font-weight: 500;
+  padding: 4px 8px 0px 8px;
+  color: black;
+  font-family: valorant;
+  opacity: .8;
+  list-style-type: none;
+}
 
 .recommend-container {
   margin: 10px;
@@ -165,6 +183,7 @@ body {
   justify-content: space-around;
   border-radius: 10px;
 }
+
 .recommendations {
   height: 90%;
   width: 30%;
@@ -176,14 +195,17 @@ body {
   justify-content: center;
   border-radius: 15px;
 }
+
 .agent-bust {
   margin: -80px;
   width: 300px;
 }
+
 .bust-div {
   justify-content: center;
   display: flexbox;
 }
+
 .bust-container {
   margin: 20px auto;
   height: 420px;
@@ -193,6 +215,7 @@ body {
   justify-content: space-around;
   text-align: center;
 }
+
 .squadmate-text {
   margin: auto;
   margin-top: -80px;
@@ -207,92 +230,81 @@ body {
   font-family: valorant;
   opacity: .8;
 }
+
 .bust-image {
   object-fit: cover;
   width: 80%;
   height: 90%;
   margin: 20px;
   border-radius: 4.20%;
-  border: #4dadac solid 1px;
+  border: #4dadac solid 2px;
   background-repeat: no-repeat;
   background-color: #0f1923;
   background-position: center;
   background-size: 250px 250px;
   z-index: 1;
 }
-.bust-image-Initiator {
-  object-fit: cover;
-  width: 80%;
-  height: 90%;
-  margin: 20px;
-  border: #4dadac solid 1px;
-  border-radius: 4.20%;
-  background-image: url("https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png");
-  background-repeat: no-repeat;
-  background-color: #0f1923;
-  background-position: center;
-  background-size: 250px 250px;
-  transition: ease-in;
-}
-.bust-image-Duelist {
-  border: #4dadac solid 1px;
+
+.bust-image-weak {
   object-fit: cover;
   width: 80%;
   height: 90%;
   margin: 20px;
   border-radius: 4.20%;
-  background-image: url("https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png");
+  border: #4dadac solid 2px;
   background-repeat: no-repeat;
-  background-color: #0f1923;
+  background-color: rgba(255, 0, 0, 0.342);
   background-position: center;
   background-size: 250px 250px;
+  z-index: 1;
 }
-.bust-image-Sentinel {
-  border: #4dadac solid 1px;
+
+.bust-image-strong {
   object-fit: cover;
   width: 80%;
   height: 90%;
   margin: 20px;
   border-radius: 4.20%;
-  background-image: url("https://media.valorant-api.com/agents/roles/5fc02f99-4091-4486-a531-98459a3e95e9/displayicon.png");
+  border: #4dadac solid 2px;
   background-repeat: no-repeat;
-  background-color: #0f1923;
+  background-color: rgba(0, 255, 0, 0.219);
   background-position: center;
   background-size: 250px 250px;
+  z-index: 1;
 }
-.bust-image-Controller {
-  border: #4dadac solid 1px;
-  object-fit: cover;
-  width: 80%;
-  height: 90%;
-  margin: 20px;
-  border-radius: 4.20%;
-  background-image: url("https://media.valorant-api.com/agents/roles/4ee40330-ecdd-4f2f-98a8-eb1243428373/displayicon.png");
-  background-repeat: no-repeat;
-  background-color: #0f1923;
-  background-position: center;
-  background-size: 250px 250px;
-}
+
 .bust-name {
   display: block;
   margin-left: auto;
 }
+
 .agent-pool {
   margin: 10px;
-  background-color: #a7202bee;
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 10px;
+  border: #4dadac solid 2px;
+
 }
+
 .agent-icon {
   margin: 5px;
   width: 85%;
   max-height: 256px;
   height: auto;
   border-radius: 50%;
-  background-color: #0f1923;
+  border: #4dadac solid 2px;
+}
+
+.agent-icon-selected {
+  margin: 5px;
+  width: 85%;
+  max-height: 256px;
+  height: auto;
+  border-radius: 50%;
+  border: lime solid 2px;
 }
 
 /* COMMENTS & PROFILE */
@@ -302,6 +314,7 @@ body {
   width: 69px;
   border-radius: 50%;
 }
+
 .comment-header {
   text-align: center;
   margin-top: auto;
@@ -310,21 +323,40 @@ body {
 /* MAPS PAGE */
 
 .mapcontainer {
-  margin: 0 auto;
   justify-content: center;
+  width: 80%;
+  background-color: #0f1923d3;
+  border: solid #4dadac 1px;
+  margin: auto;
+  border-radius: 10px;
+  display: grid;
 }
+
+.inner-map {
+  justify-content: center;
+  background-color: #0f1923d3;
+  margin: 20px auto;
+  border-radius: 10px;
+  display: flex;
+}
+
 .child {
-  width: 210px;
+  width: 15%;
   height: 400px;
   margin: 10px;
   justify-self: center;
   opacity: 0.8420;
 }
+
 .map-image {
-  object-fit: cover;
-  width: 210px;
+  width: 100%;
   height: 400px;
-  margin: 20px;
+  border-radius: 15px;
+  border: #00000000 solid 2px;
+}
+.map-image:hover {
+  border: #4dadac solid 2px;
+  transition: .5s ease-in;
 }
 
 /* NAVBAR */
@@ -333,8 +365,6 @@ body {
 .logbutt {
   float: right;
 }
-
-
 
 .page-wrapper {
   width: 100%;
@@ -351,8 +381,6 @@ a {
 a:hover {
   color: #646ec4
 }
-
-
 
 .nav-wrapper {
   width: 100%;

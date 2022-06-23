@@ -5,7 +5,7 @@ class CreateMaps < ActiveRecord::Migration[6.1]
       t.string :displayName
       t.string :listViewIcon
       t.string :splash
-
+      t.string :rolebias
       t.timestamps
     end
   end

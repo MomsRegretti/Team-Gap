@@ -14,7 +14,7 @@ function AgentMap({ map, currentMap, handleMapClick }) {
     };
 
     return (
-        <div className={currentMap === map ? "card-active" : "card"} style={{ background: `url(${map.splash}) no-repeat center` }} onClick={() => handleMapClick(map, configObjPOST)}>
+        <div className={currentMap.uuid === map.uuid ? "card-active" : "card"} style={{ background: `url(${map.splash}) no-repeat center` }} onClick={() => handleMapClick(map, configObjPOST)}>
             <div className='shadow'></div>
             <div className='label'>
                 <div className='icon'>
