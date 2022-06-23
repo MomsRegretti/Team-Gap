@@ -11,13 +11,12 @@ function Comment({ body, user_id }) {
             })
     },[user_id])
     return (
-        <div>
-            <div>
-                <button onClick={() => console.log(user_id)}>user state</button>
+        <div className="single-container">
+            <div style={{display: "grid", width: "fit-content"}}>
                 <img className='avatar' src={user.avatar} alt={user.username} />
-                <strong className='comment-header'>{user.username}</strong>
+                <strong style={{gridColumn: 2, alignSelf: 'end'}}>{user.username}</strong>
+                <p className="comment-body">{body}</p>
             </div>
-            <p>{body}</p>
         </div>
     )
 }

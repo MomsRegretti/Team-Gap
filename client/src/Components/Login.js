@@ -41,7 +41,7 @@ function Login({ setUser, setIsAuthenticated }) {
 
 
     return (
-        <div>
+        <div className='page-container' style={{margin: 'auto'}}>
             <div>
                 <h2>Welcome Back</h2>
                 <h4>Team Gap</h4>
@@ -61,7 +61,7 @@ function Login({ setUser, setIsAuthenticated }) {
                         onChange={(e) => setPasswordInput(e.target.value)}
                         value={passwordInput}
                     />
-                    <button type="submit">Submit</button>
+                    <button className='butt' style={{display: "inline-block", margin: " auto 20px"}} type="submit">Submit</button>
                     <>
                     {error ? (<strong>{error}</strong>) : null}
                     </>
@@ -69,7 +69,7 @@ function Login({ setUser, setIsAuthenticated }) {
             </div>
             <div>
                 <h4>Don't have an account?</h4>
-                <button onClick={() => navigate("/signup")}>Sign Up</button>
+                <button className='butt' onClick={() => navigate("/signup")}>Sign Up</button>
             </div>
 
         </div>

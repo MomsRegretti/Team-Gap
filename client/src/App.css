@@ -315,9 +315,71 @@ body {
   border-radius: 50%;
 }
 
-.comment-header {
+.splash {
+  width: 80%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.single-container {
+  display: grid;
+  text-align: left;
+  margin: auto 5% auto 5%;
+}
+
+.comment-body {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: flex-start;
+}
+
+textarea {
+  width: 70%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-family: valorant;
+  font-size: 16px;
+  resize: none;
+}
+
+.form {
+  display: grid;
+  width: 80%;
+  margin: auto;
+}
+.form input {
+  width: 30%;
+  margin: 20px auto;
+}
+.comment-container {
+  width: 80%;
+  background-color: #0f1923d3;
+  border: solid #4dadac 1px;
+  margin: 20px auto;
+  border-radius: 10px;
+  display: grid;
+}
+
+.butt {
+  display: block;
+  background-color: white;
+  color: black;
+  padding: 16px 32px;
   text-align: center;
-  margin-top: auto;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 3% auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.butt:hover {
+  background-color: #a7202bee;
+  color: white;
 }
 
 /* MAPS PAGE */
@@ -354,6 +416,7 @@ body {
   border-radius: 15px;
   border: #00000000 solid 2px;
 }
+
 .map-image:hover {
   border: #4dadac solid 2px;
   transition: .5s ease-in;
@@ -384,7 +447,6 @@ a:hover {
 
 .nav-wrapper {
   width: 100%;
-  position: -webkit-sticky;
   /* Safari */
   position: sticky;
   top: 0;
@@ -412,10 +474,32 @@ a:hover {
   height: 40px;
 }
 
+.logo-text {
+  background-color: white;
+  grid-row: 1;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  z-index: 2;
+  font-weight: 500;
+  color: black;
+  font-family: valorant;
+  opacity: .8;
+  list-style-type: none;
+}
+
+.logo-container {
+  height: 25px;
+  justify-content: center;
+  display: grid;
+  margin-right: 50%;
+}
+
 .navbar img {
   height: 16px;
   width: auto;
-  margin-right: 56%;
+  grid-row: 1;
 }
 
 .navbar ul {
@@ -436,6 +520,8 @@ a:hover {
   background-color: inherit;
   transition: color 0.3s ease-out, background-color 0.3s ease-out;
 }
+
+
 
 .nav-item a:hover {
   color: whitesmoke;

@@ -1,5 +1,5 @@
 import React from 'react'
-function Map({ user, isAuthenticated, map, handleMapCardClick }) {
+function Map({ user, map, handleMapCardClick }) {
   const uuid = map.uuid
 
   return (

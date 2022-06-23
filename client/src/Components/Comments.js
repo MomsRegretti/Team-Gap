@@ -45,25 +45,19 @@ function Comments({ comments, handleErrors, errors, handleNewComment, user, map,
     };
 
     return (
-        <div className="container">
+        <div className="comment-container">
             <div>
                 <div>
-                    <h2>{comments.length} comments</h2>
+                    <h3 style={{ fontFamily: "valorant" }}>{comments.length} Comments</h3>
                     {comments.map((comment) => {
                         return <Comment key={comment.id} body={comment.body} user_id={comment.user_id}></Comment>
                     })}
                 </div>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <textarea name="body" onChange={handleChange} value={commentData.body} placeholder="Start writing..."></textarea>
-                    <input name="category" onChange={handleChange} value={commentData.category} placeholder="Category"></input>
-                    <button type="submit">Post your comment</button>
-                    
+                    <button className="butt" type="submit">Post your comment</button>
                 </form>
                 {errors ? <strong>{errors}</strong> : null}
-                <button onClick={() => console.log(comments)}>comment data</button>
-                <button onClick={() => console.log(uuid)}>uuid</button>
-                <button onClick={() => console.log(user)}>user</button>
-
             </div>
         </div>
     )

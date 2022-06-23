@@ -49,51 +49,51 @@ function Signup({ setUser, setIsAuthenticated }) {
 
 
     return (
-        <div>
+        <div className="page-container" style={{ margin : ' 10% auto'}}>
             <div>
                 <h2>Welcome to Team Gap!</h2>
-                <h4>Hub for Valorant Team Composition and Stategies!</h4>
-                <h1>Get started by signing up!</h1>
+                <h4>Your Go-To Hub for Valorant Team Composition and Stategies!</h4>
+                <h4>Get started by signing up!</h4>
             </div>
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form className='form' onSubmit={(e) => handleSubmit(e)}>
                 <label>Name</label>
                 <input
-                type="text"
-                placeholder="Name..."
-                onChange={handleChange}
-                value={signUpData.name}
-                name="name">
+                    type="text"
+                    placeholder="Name..."
+                    onChange={handleChange}
+                    value={signUpData.name}
+                    name="name">
                 </input>
                 <label>Username</label>
                 <input
-                type="text"
-                placeholder="Username..."
-                onChange={handleChange}
-                value={signUpData.username}
-                name="username">
+                    type="text"
+                    placeholder="Username..."
+                    onChange={handleChange}
+                    value={signUpData.username}
+                    name="username">
                 </input>
                 <label>Email</label>
                 <input
-                type="text"
-                placeholder="Email..."
-                onChange={handleChange}
-                value={signUpData.email}
-                name="email">
+                    type="text"
+                    placeholder="Email..."
+                    onChange={handleChange}
+                    value={signUpData.email}
+                    name="email">
                 </input>
                 <label>Password</label>
                 <input
-                type="text"
-                placeholder="Password..."
-                onChange={handleChange}
-                value={signUpData.password}
-                name="password">
+                    type="text"
+                    placeholder="Password..."
+                    onChange={handleChange}
+                    value={signUpData.password}
+                    name="password">
                 </input>
-                <button type="submit" >Create Account</button>
+                <button className="butt" type="submit" >Create Account</button>
                 {error ? (<strong>{error}</strong>) : null}
             </form>
             <div>
                 <h4>Already have an account?</h4>
-                <button onClick={() => navigate("/login")}>Login</button>
+                <button className="butt" onClick={() => navigate("/login")}>Login</button>
             </div>
         </div>
     )

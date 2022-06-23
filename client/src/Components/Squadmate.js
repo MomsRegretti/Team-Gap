@@ -11,7 +11,7 @@ function Squadmate({ squadMate, handleRemoveSquadMate, currentMap }) {
                 return 'bust-image-strong'
             }
         } else
-        return "bust-image"
+            return "bust-image"
     }
 
     const sectionStyle = {

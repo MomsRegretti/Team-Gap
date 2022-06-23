@@ -4,6 +4,11 @@ class User < ApplicationRecord
     has_many :comments
     has_many :maps, through: :comments
 
+    after_initialize :init
+
+    def init
+        self.avatar  ||= "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg"
+    end
     # Validations: username
     validates :username, presence: true
     validates :username, uniqueness: true

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Comments from '../Components/Comments';
 function MapDetails() {
     let locate = useLocation();
-    let { splash, displayName, uuid } = locate.state.map
+    let { splash, displayIcon, displayName, uuid } = locate.state.map
     const [comments, setComments] = useState([])
     const [errors, setErrors] = useState([])
 
@@ -31,10 +31,11 @@ function MapDetails() {
         setErrors(errors)
     }
     return (
-        <div>
-            <h1>{displayName}</h1>
-            <img src={splash} alt={displayName} />
-            <Comments  handleNewComment={handleNewComment} handleErrors={handleErrors} errors={errors} comments={comments} map={locate.state.map} user={user} uuid={uuid} />
+        <div className="page-container">
+            <h1 style={{ fontFamily: "valorant" }}>{displayName}</h1>
+            <img className="splash" src={splash} alt={displayName} />
+            <img className="splash" src={displayIcon} alt={displayName} />
+            <Comments handleNewComment={handleNewComment} handleErrors={handleErrors} errors={errors} comments={comments} map={locate.state.map} user={user} uuid={uuid} />
         </div>
     )
 }

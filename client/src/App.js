@@ -10,7 +10,7 @@ import Profile from './Pages/Profile'
 import EditProfileForm from './Pages/EditProfileForm'
 import MapDetails from './Pages/MapDetails'
 import AgentSelector from './Pages/AgentSelector';
-
+import Home from './Pages/Home';
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState("");
@@ -60,7 +60,6 @@ function App() {
     }).then(setIsAuthenticated(false))
       .then(setUser(""));
     navigate("/")
-
   };
 
   function handleUser(user) {
@@ -77,11 +76,7 @@ function App() {
       <Routes>
         <Route path="/" element=
           {
-            <div>
-              <div>
-                Welcome to Team Canyon{user ? ", " + user.name : null}!
-              </div>
-            </div>
+            <Home user={user}/>
           }>
         </Route>
         <Route path="/login" element=

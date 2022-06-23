@@ -17,7 +17,7 @@ function Maps({ maps, user, isAuthenticated, handleMapCardClick }) {
 
     return (
         <div className="mapcontainer">
-            <div className="teambias-text" style={{marginTop : 30}}><span></span>Select A Map to Comment On!</div>
+            <div className="teambias-text" style={{ marginTop: 30 }}><span></span>Select A Map to Comment On!</div>
             <div className="inner-map">
                 {renderMaps}
             </div>
