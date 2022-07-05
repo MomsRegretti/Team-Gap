@@ -178,15 +178,18 @@ body {
 .recommend-container {
   margin: 10px;
   height: 400px;
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: space-around;
   border-radius: 10px;
+  border: #4dadac solid 2px;
+  justify-items: center;
+  grid-auto-columns: 30%;
+  justify-content: space-around;
 }
 
 .recommendations {
   height: 90%;
-  width: 30%;
+  width: 100%;
   background-image: url("https://wallpaperaccess.com/full/4547519.jpg");
   background-position: center;
   background-size: cover;
@@ -195,7 +198,20 @@ body {
   justify-content: center;
   border-radius: 15px;
 }
-
+.recommendations li {
+  background-color: white;
+  text-align: center;
+  margin: 10px auto auto auto;
+  z-index: 2;
+  font-weight: 500;
+  padding: 4px 8px 0px 8px;
+  color: black;
+  font-family: valorant;
+  opacity: .8;
+  list-style-type: none;
+  top: 1380px;
+  position: absolute;
+}
 .agent-bust {
   margin: -80px;
   width: 300px;
@@ -351,10 +367,12 @@ textarea {
   width: 80%;
   margin: auto;
 }
+
 .form input {
   width: 30%;
   margin: 20px auto;
 }
+
 .comment-container {
   width: 80%;
   background-color: #0f1923d3;
@@ -415,6 +433,7 @@ textarea {
   height: 400px;
   border-radius: 15px;
   border: #00000000 solid 2px;
+  object-fit: cover;
 }
 
 .map-image:hover {
@@ -423,7 +442,6 @@ textarea {
 }
 
 /* NAVBAR */
-
 
 .logbutt {
   float: right;
@@ -496,6 +514,10 @@ a:hover {
   margin-right: 50%;
 }
 
+.logo-container:hover {
+  cursor: pointer;
+}
+
 .navbar img {
   height: 16px;
   width: auto;
@@ -520,8 +542,6 @@ a:hover {
   background-color: inherit;
   transition: color 0.3s ease-out, background-color 0.3s ease-out;
 }
-
-
 
 .nav-item a:hover {
   color: whitesmoke;

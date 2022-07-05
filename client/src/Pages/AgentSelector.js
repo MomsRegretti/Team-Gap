@@ -66,13 +66,7 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
 
     const poke = () => console.log('that tickles')
 
-    const renderStrongAgents = strongAgents.map((agent) => {
-        return (
-            <div>
-                <Bust key={agent.id} agent={getAgent(agent.agent_id)} handleSetSquadMate={poke} />
-            </div>
-        )
-    })
+
 
     const renderMapBias = () => {
         if (currentMap.rolebias === "Controller") {
@@ -85,6 +79,11 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
             return <img style={{ margin: "20px auto" }} src='https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png' alt='Duelist' />
         }
     }
+
+    const renderStrongAgents = strongAgents.map((agent) => {
+        return <Bust key={agent.id} agent={getAgent(agent.agent_id)} handleSetSquadMate={poke} />
+
+    })
 
     const renderGenerallyGoodAgents = generallyGoodAgents.map((agent) => {
         return <Bust key={agent.id} agent={getAgent(agent.agent_id)} handleSetSquadMate={poke} />
@@ -124,13 +123,16 @@ function AgentSelector({ maps, mapsLoaded, agents, agentsLoaded }) {
                     {renderAgents}
                 </div>
                 <div className="recommend-container">
-                    <div className='recommendations' id='Strong'>
+                    <div style={{ gridColumn: 1 }} className='recommendations' id='Strong'>
+                        <li >Strong</li>
                         {currentMap ? renderStrongAgents : null}
                     </div>
-                    <div className='recommendations' id='Generally Good'>
+                    <div style={{ gridColumn: 2 }} className='recommendations' id='Generally Good'>
+                        <li >Generally Good</li>
                         {currentMap ? renderGenerallyGoodAgents : null}
                     </div>
-                    <div className='recommendations' id='Weak'>
+                    <div style={{ gridColumn: 3 }} className='recommendations' id='Weak'>
+                        <li >Weak</li>
                         {currentMap ? renderWeakAgents : null}
                     </div>
                 </div>
