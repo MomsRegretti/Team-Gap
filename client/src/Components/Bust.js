@@ -3,7 +3,7 @@ import React from 'react'
 function Bust({ agent }) {
     return (
         <div id='immediate'>
-            <img className='agent-bust' src={agent.fullPortraitV2} alt={agent.displayName} />
+            <img className="agent-bust" src={agent.fullPortrait} alt={agent.displayName} />
         </div>
     )
 
