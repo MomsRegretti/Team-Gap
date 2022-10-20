@@ -50,7 +50,7 @@ function Login({ setUser, setIsAuthenticated }) {
                     <label>Username</label>
                     <input
                         type="text"
-                        placeholder='Username'
+                        placeholder='Case Sensitive!'
                         onChange={(e) => setUsernameInput(e.target.value)}
                         value={usernameInput}
                     />
