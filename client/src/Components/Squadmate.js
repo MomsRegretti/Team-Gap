@@ -19,7 +19,7 @@ function Squadmate({ squadMate, handleRemoveSquadMate, currentMap }) {
     }
     return (
         <div className="bust-div" >
-            <img className={handleClassName()} style={sectionStyle} onClick={() => handleRemoveSquadMate(squadMate)} src={squadMate ? squadMate.fullPortraitV2 : placeHolder} alt={squadMate.displayName} />
+            <img className={handleClassName()} style={sectionStyle} onClick={() => handleRemoveSquadMate(squadMate)} src={squadMate ? squadMate.fullPortrait : placeHolder} alt={squadMate.displayName} />
             {squadMate ? <div className={"squadmate-text"}>{squadMate.displayName}</div> : null}
         </div>
     )
